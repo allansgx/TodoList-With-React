@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSnackbar } from 'notistack';
 import {
     Box,
     Button,
@@ -13,7 +14,10 @@ import {
 import { Add } from '@mui/icons-material';
 import ListTasks from '../ListTasks';
 import FormDialog from '../Dialog';
-import { useSnackbar } from 'notistack';
+import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
+import DragHandleIcon from '@mui/icons-material/DragHandle';
+import MenuIcon from '@mui/icons-material/Menu';
+import ReorderIcon from '@mui/icons-material/Reorder';
 
 const AddNewTask = ({handleRegisterTask}) => {
     const [title, setTitle] = useState('');
@@ -22,6 +26,17 @@ const AddNewTask = ({handleRegisterTask}) => {
         title: false,
         priority: false,
     });
+
+    const IconPriority = ({priority}) => {
+        const icons = {
+            'Low': <HorizontalRuleIcon color={'success'} />,
+            'Medium': <DragHandleIcon color={'warning'} />,
+            'High': <MenuIcon color={'error'}/>,
+            'Very high': <ReorderIcon color={'error'}/>
+        }
+
+        return icons[priority];
+    };
 
     const priorities = [
         'Low',
@@ -90,7 +105,12 @@ const AddNewTask = ({handleRegisterTask}) => {
                             </MenuItem>
                             {priorities?.map((priority, index) => (
                                 <MenuItem key={index} value={priority}>
-                                    {priority}
+                                    <Box display={'flex'} alignItems={'center'}>
+                                        <Box component={'span'} paddingRight={2}>
+                                            <IconPriority priority={priority} />
+                                        </Box>
+                                        {priority}
+                                    </Box>
                                 </MenuItem>
                             ))}
                         </Select>
