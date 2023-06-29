@@ -3,7 +3,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
-import { Facebook, GitHub, Instagram, Twitter } from "@mui/icons-material";
+import { GitHub, Instagram } from "@mui/icons-material";
 import { Box } from "@mui/material";
 
 export default function Footer() {
@@ -20,14 +20,6 @@ export default function Footer() {
     >
       <Container maxWidth="lg" sx={{ padding: '20px' }}>
         <Grid container>
-          {/* <Grid item xs={12} sm={4}>
-            <Typography variant="h6" color="text.primary" gutterBottom>
-              About Us
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Criado por Allan da Silva Gomes.
-            </Typography>
-          </Grid> */}
             <Grid
                 item xs={12}
                 container
