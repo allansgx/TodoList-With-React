@@ -6,7 +6,12 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div className="App">
-      <Container maxWidth='md' sx={{ padding: '1em' }}>
+      <Container
+        maxWidth='md' 
+        sx={{ 
+          padding: '1em',
+          marginBottom: { xs: '50%', md: '0'}
+        }}>
         <Form />
       </Container>
       <Footer />
